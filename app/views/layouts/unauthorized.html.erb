@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cuernambiental</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card-header">
+              <h3 class="text-center font-weight-light my-4">Iniciar sesión</h3>
+            </div>
+            <div class="card-body">
+              <%= yield %>
+              <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %> alert-dismissible fade show mt-3 mb-0" role="alert">
+                  <%= value %>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              <% end %>
+            </div>
+            <div class="card-footer text-center">
+              <div class="small">
+                <%= link_to "Regístrate", new_registration_path(resource_name) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
