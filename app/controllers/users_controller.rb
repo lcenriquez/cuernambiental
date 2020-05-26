@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @current_user = current_user
   end
 
   # GET /users/1
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @permissions = Permission.all
   end
 
   # POST /users
@@ -65,6 +67,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      @current_user = current_user
     end
 
     # Only allow a list of trusted parameters through.

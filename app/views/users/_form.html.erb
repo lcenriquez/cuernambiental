@@ -11,37 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="form-group">
+    <%= form.label "Nombre" %>
+    <%= form.text_field :first_name, class: "form-control py-4" %>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="form-group">
+    <%= form.label "Apellido" %>
+    <%= form.text_field :last_name, class: "form-control py-4" %>
   </div>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: "form-control py-4" %>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+  <div class="form-group">
+    <%= form.label "Contraseña" %>
+    <em>(mínimo 6 caracteres)</em>
+    <%= form.text_field :password, class: "form-control py-4" %>
   </div>
 
-  <div class="field">
-    <%= form.label :permissions %>
-    <%= form.number_field :permissions %>
-  </div>
+  <% if @permissions && @current_user.permissions == 1 %>
+    <div class="form-group">
+      <%= form.label :permissions %>
+      <%= form.select :permissions, @permissions.map {|c| [c.name, c.id]}, {}, {class: "form-control"} %>
+    </div>
+  <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
