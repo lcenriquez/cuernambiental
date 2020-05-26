@@ -60,6 +60,20 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "cuernambiental_production"
 
+  config.action_mailer.default_url_options = { host: "https://cuernambiental.herokuapp.com" }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              Rails.application.credentials.dig(:mailer, :address),
+    port:                 Rails.application.credentials.dig(:mailer, :port),
+    user_name:            Rails.application.credentials.dig(:mailer, :username),
+    password:             Rails.application.credentials.dig(:mailer, :password),
+    authentication:       :login,
+    ssl:                  true,
+    tls:                  true,
+    enable_starttls_auto: true
+  }
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
