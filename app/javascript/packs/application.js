@@ -10,6 +10,10 @@ require("channels")
 
 import "bootstrap"
 import "../stylesheets/application.scss"
+import "@fortawesome/fontawesome-free/js/fontawesome"
+import "@fortawesome/fontawesome-free/js/solid"
+import "@fortawesome/fontawesome-free/js/regular"
+import "@fortawesome/fontawesome-free/js/brands"
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
